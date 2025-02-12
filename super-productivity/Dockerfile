@@ -1,6 +1,6 @@
-FROM ghcr.io/linuxserver/super-productivity:latest
+FROM johannesjo/super-productivity:latest
 
-# Expose only the port used for Ingress
-EXPOSE 3000
+# Expose only the port required for Ingress
+EXPOSE 80
 
 CMD ["npm", "start"]

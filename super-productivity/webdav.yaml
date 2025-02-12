@@ -1,15 +1,12 @@
-version: '3.3'
+address: 0.0.0.0
+port: 80
+prefix: /
+permissions: CRUD
 
-services:
-  webdav:
-    image: bytemark/webdav
-    container_name: webdav
-    restart: unless-stopped
-    ports:
-      - "80:80"
-    environment:
-      - AUTH_TYPE=Basic
-      - USERNAME=admin
-      - PASSWORD=password
-    volumes:
-      - ./data:/var/lib/dav
+users:
+  - username: alice
+    password: alicepassword
+    directory: /data/alice
+  - username: bob
+    password: bobpassword
+    directory: /data/bob
