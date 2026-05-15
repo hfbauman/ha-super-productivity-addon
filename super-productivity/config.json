@@ -1,8 +1,8 @@
 {
     "name": "Super Productivity",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "slug": "super_productivity",
-    "description": "Super Productivity with WebDAV support (Ingress enabled)",
+    "description": "Super Productivity with built-in WebDAV sync support (Ingress enabled)",
     "arch": ["aarch64", "amd64", "armhf", "armv7"],
     "startup": "system",
     "boot": "auto",
@@ -19,12 +19,21 @@
     "map": ["config:rw", "share:rw"],
     "options": {
       "username": "alice",
-      "password": "alicepassword"
+      "password": "alicepassword",
+      "sync_base_url": "/webdav/",
+      "sync_folder_path": "/",
+      "sync_interval_minutes": 15,
+      "sync_compression": true,
+      "sync_encryption": false
     },
     "schema": {
       "username": "str",
-      "password": "password"
+      "password": "password",
+      "sync_base_url": "str",
+      "sync_folder_path": "str",
+      "sync_interval_minutes": "int(1,1440)",
+      "sync_compression": "bool",
+      "sync_encryption": "bool"
     },
     "init": false
   }
-  
